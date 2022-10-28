@@ -12,7 +12,7 @@ According to the input seed_ID, the extended loop information will be obtained
 import re
 import argparse
 import time
-
+#import gzip
 
 def get_all_connection_from_datafile():
     '''
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser(description="According to the input seed_ID, the extended loop information is obtained")
     parser.add_argument("--ContigGraph","-c",help='454ContigGraph.txt: a file that can get all connections bewteen contigs.',type=str,required=False,default="454ContigGraph.txt")
     parser.add_argument("--AllContigs","-a",help='454AllContigs.fna: a file that can get all information of contigs.',type=str,required=False,default="454AllContigs.fna")
-    parser.add_argument("--Output", "-o", help='Output file for visualizing in Bandage', required=True)
+    parser.add_argument("--Output", "-o", help='Output file for visualizing in Bandage', type=str,required=False,default="Assembly_graph.gfa")
     parser.add_argument("--seeds","-s",help='SeedIDs for extending. Multiple parameters should be separated by Spaces. For example: 1 312 356',required=True,nargs='+')
 
     args=parser.parse_args()
@@ -166,8 +166,7 @@ if __name__ == '__main__':
     for i in range(0, len(seeds)):
         seeds[i] = str(seeds[i])
     #Enter the results into  file_result
-    with open(file_data_fna_name, 'r') as fna:
-
+    with gzip.open(file_data_fna_name, 'r') as fna:
         index_seeds = 0
         index_con = 0
         con = fna.readlines()
