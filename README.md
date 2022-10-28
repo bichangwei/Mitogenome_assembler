@@ -4,7 +4,7 @@ This assembler is developped to de novo assemble plant mitochondrial genomes
 Our mitogenome assembly pipeline uses whole-genome HiFi sequencing data as input and outputs a complete mitogenome sequence. 
 
 Figure 1 shows the workflow of our assembly pipeline which has five main following steps:
-![image text](https://github.com/bichangwei/Mitogenome_assembler/tree/main/Figures/Pipeline.jpg)
+![image](https://github.com/bichangwei/Mitogenome_assembler/blob/master/Figures/Pipeline.jpg)
 
 # Step 1. Read correction using Canu correct module if the input data was not generated from PacBio HiFi sequencing
         canu -correct -p Correct -d PacBio genomeSize=500m rawErrorRate=0.3 correctedErrorRate=0.045 batThreads=20 "batOptions=-dg 3 -db 3 -dr 1 -ca 500 -cp 50" useGrid=false -pacbio PacBio.fastq.gz
