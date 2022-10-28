@@ -3,7 +3,7 @@ This assembler is developped to de novo assemble plant mitochondrial genomes
 
 Our mitogenome assembly pipeline uses whole-genome HiFi sequencing data as input and outputs a complete mitogenome sequence. 
 
-Figure 1 shows the workflow of our assembly pipeline which has five main following steps:
+The following figure shows the workflow of our assembly pipeline:
 ![image](https://github.com/bichangwei/Mitogenome_assembler/blob/main/Figures/Pipeline.jpg)
 
 # Step 1. Read correction using Canu correct module if the input data was not generated from PacBio HiFi sequencing
@@ -34,7 +34,9 @@ Figure 1 shows the workflow of our assembly pipeline which has five main followi
 # Step 4. Selecting extended seed contigs (longest 3~5 contigs with medium depth)
         awk '{if($2 ~ /^contig/)print}' 454ContigGraph.txt > Species.csv
         # draw coverage distribution graph with Scripts/Plot_coverage.R
-![image](https://github.com/bichangwei/Mitogenome_assembler/blob/main/Figures/Je_merge1.jpg)
+
+The following figure shows the length and coverage distribution for selecting seeds:
+![image](https://github.com/bichangwei/Mitogenome_assembler/blob/main/Figures/Juncus_effusus_2G.jpg)
 
 
 # Step 5. Extending seed contigs and constructing initial assembly graph
@@ -50,6 +52,8 @@ Figure 1 shows the workflow of our assembly pipeline which has five main followi
         # Remove full-path cp contigs and tip contigsAssembly.gfa
         # Decode the revised assembly graph based on the copy number of each contig
         # Merged all possible nodes and exported the complete mitogenome sequence to a FASTA format file
-![image](https://github.com/bichangwei/Mitogenome_assembler/blob/main/Figures/Juncus_effusus_2G.jpg)
 
-#Step 7. Exporting the final complete mitogenome sequence using Bandage
+# Step 7. Exporting the final complete mitogenome sequence using Bandage
+
+The following figure shows the raw and simplified assembly graph:
+![image](https://github.com/bichangwei/Mitogenome_assembler/blob/main/Figures/Je_merge1.jpg)
