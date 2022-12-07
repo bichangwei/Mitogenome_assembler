@@ -21,7 +21,9 @@ The following figure shows the workflow of our assembly pipeline:
         # -b Braek the reads (>30k) into more short reads (<20k); default: 20000 bp
 
 # Step 3. De novo assembly using Newbler v.3.0
-        runAssembly -cpu 10 -het -sio -m -urt -large -s 100 -nobig -o $output_dir Hifi.cut20k.fa
+You can get the packaged Newbler [runAssembly.sif](https://github.com/bichangwei/runAssembly) here
+
+	singularity exec runAssembly.sif runAssembly -cpu 10 -het -sio -m -urt -large -s 100 -nobig -o $output_dir Hifi.cut20k.fa
         # -het: Flag to enable Heterozygotic mode, which causes the assembler to choose a path between 2 contigs when there is ambiguity regarding the path that should be taken.
         #       By default, the assembler will not choose a path when ambiguity exists
         # -sio: Flag to invoke serial I/O. Use for projects with > 4 million reads.
