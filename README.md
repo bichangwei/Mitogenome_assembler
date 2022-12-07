@@ -51,7 +51,7 @@ The following figure shows the length and coverage distribution for selecting se
 
 # Step 6. Visualizing and simplifying assembly graph using Bandage
         # Open Assembly.gfa with Bandage
-        # Remove full-path cp contigs and tip contigsAssembly.gfa
+        # Remove full-path cp contigs and tip contigs
         # Decode the revised assembly graph based on the copy number of each contig
         # Merged all possible nodes and exported the complete mitogenome sequence to a FASTA format file
 
